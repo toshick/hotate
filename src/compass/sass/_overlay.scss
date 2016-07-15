@@ -1,0 +1,159 @@
+@charset "utf-8";
+//-----------------------
+// オーバレイアニメーション用
+//-----------------------
+.modal-transition {
+  transition: all .3s ease;
+}
+
+.modal-enter,
+.modal-leave {
+  opacity: 0;
+}
+
+.modal-enter .overlay_cont,
+.modal-leave .overlay_cont {
+  //@include transform(scale(1.1));
+  transform: scale(1.1, 1.1);
+}
+
+//-------------------------
+// オーバレイ
+//-------------------------
+.overlay {
+  display: table;
+  position: fixed;
+  @include topLeft(0, 0);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#999, 0.9);
+  background-image: url("/common/img/dark-stripes-light.png");
+  z-index: 1500;
+  &.overlay_transparent {
+    background-color: rgba(#000, 0);
+  }
+}
+
+.overlay_container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.overlay_cont {
+  position: relative;
+  @include box-shadow(0 2px 8px rgba(0, 0, 0, .33));
+  width: 500px;
+  background-color: #FFF;
+  background-image: url("/common/img/dark-stripes-light.png");
+  border-radius: 6px;
+  padding: 0px 0px 80px 0px;
+  margin: 0px auto 0px auto;
+  overflow: hidden;
+  transition: all .3s ease;
+  .overlay_cont_title {
+    @include font(20px,
+    #FFF);
+    border-bottom: solid 1px #999;
+    padding: 15px 20px 10px 20px;
+    background-color: rgba(#2d776e, 0.7);
+  }
+  .overlay_cont_txt {
+    text-align: center;
+    padding: 10px 20px 0px 20px;
+    @include font(16px,
+    #666);
+  }
+  .btn-close {
+    position: absolute;
+    // @include bottomRight(0px, 0px);
+    // @include topRight(20px, 20px);
+    @include hCenter();
+    bottom: -50px;
+    border-radius: 3px;
+    border: solid 1px #999;
+    background-color: #FFF;
+    color: #666;
+    width: 160px;
+    &:hover {
+      background-color: #EEE;
+    }
+  }
+  .btn-cancel {
+    // @include font(16px, #EE4466);
+    @include font(16px,
+    #666);
+  }
+}
+
+.overlay_btns {
+  position: absolute;
+  @include bottomRight(20px,
+  20px);
+  a {
+    margin-left: 10px;
+  }
+}
+
+.overlay_confirm {
+  text-align: left;
+  background-color: #EEE;
+  border-radius: 4px;
+  padding: 10px 10px 10px 10px;
+  @include font(12px,
+  #666);
+  overflow: scroll;
+  max-height: 400px;
+}
+
+//-----------------------
+// CSVアップロードオーバレイ
+//-----------------------
+.overlay-csvupload {
+  .overlay_cont {
+    background-color: #FFF;
+    border-radius: 6px;
+    padding-bottom: 60px;
+    width: 700px;
+  }
+  .overlay_cont_title {
+    border-bottom: none;
+  }
+  .overlay_cont_dragdrop {
+    border: solid 1px #79B1E5;
+    background-color: #EFF8FC;
+    border-radius: 6px;
+    height: 200px;
+    margin: 0px 20px 0px 20px;
+  }
+  .overlay_cont_dragdrop_txt {
+    position: absolute;
+    @include center();
+    text-align: center;
+    line-height: 2;
+  }
+  label {
+    &:hover {
+      p {
+        background-color: #639DD3;
+      }
+    }
+    p {
+      width: 160px;
+      border-radius: 3px;
+      background-color: #79B1E5;
+      cursor: pointer;
+      padding: 10px 0px 10px 0px;
+      margin: 10px 0px 0px 0px;
+      @include font(12px,
+      #FFF);
+    }
+  }
+  input[type=file] {
+    display: none;
+  }
+  .btn-download {
+    position: absolute;
+    @include bottomRight(20px,
+    20px);
+  }
+}

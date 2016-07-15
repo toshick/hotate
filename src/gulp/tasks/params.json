@@ -1,0 +1,7 @@
+{
+  "path_srcjs": "./src_js",
+  "path_htdocs": "../../htdocs",
+  "path_jade": "../jade",
+  "path_scss": "../compass/sass",
+  "path_compass": "../compass"
+}

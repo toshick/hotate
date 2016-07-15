@@ -1,0 +1,48 @@
+doctype html
+html.no-js(xmlns:og='http://ogp.me/ns#', xmlns:fb='https://www.facebook.com/2008/fbml')
+  head
+    meta(charset='UTF-8')
+
+    block title
+
+    block meta
+      meta(name='viewport', content='width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui')
+
+      meta(name="apple-mobile-web-app-capable", content="yes")
+      meta(name="apple-mobile-web-app-status-bar-style", content="black-translucent")
+      //-link(rel="apple-touch-icon", href="/common/img/chunamu_400x400.png")
+
+      meta(name='author', content=author)
+      meta(name='description', content=description)
+      meta(name='keywords', content=keywords)
+      meta(name='robots', content=robots)
+      //- <%= csrf_meta_tags %>
+
+    block style
+     
+
+  body
+    // wrapper
+    .wrapper.wrapper-scroll(v-bind:class="{'wrapper-noscroll':didopenoverlay}")
+
+      block header
+
+      block body
+
+      block foot
+
+    block other
+      //- オーバレイ
+      //- compo-overlay(v-if='overlay_logout', title='ログアウト')
+      //-   p ログアウトしますか？
+      //-   .overlay_btns
+      //-     a.btn.btn-large.btn-danger.btn-ok(href='javascript:void(0);', @click.stop.prevent='logout') OK
+      //-     a.btn.btn-large.btn-default.btn-cancel(href='javascript:void(0);', @click.stop.prevent='startLogout(false)') キャンセル
+
+    block script
+      
+
+  //- tmpl
+  include /_tmpl
+
+  block selftmpl

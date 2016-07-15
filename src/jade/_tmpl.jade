@@ -1,0 +1,25 @@
+
+// ------------------------------------
+//
+// 通知
+//
+// ------------------------------------
+script(type='x-template', id='compo-notice')
+  .notice
+    .notice_body
+      span.glyphicon.glyphicon-comment
+    .notice_btnholder
+
+// ------------------------------------
+//
+// オーバレイ
+//
+// ------------------------------------
+script(type='x-template', id='compo-overlay')
+  .overlay(transition='modal')
+    .overlay_container
+      .overlay_cont
+        p.overlay_cont_title {{{title}}}
+        .overlay_cont_txt
+          slot slot
+          

@@ -1,0 +1,157 @@
+include /_mixin
+extends /_layout
+
+block append style
+  link(rel='stylesheet', href='/hotate/css/hotate.css', media="screen, projection" type="text/css")
+
+block title
+  title= sitetitle
+
+block append meta
+  +meta_facebook(url=siteurl_home, title=sitetitle, description=sitetitle)
+
+block header
+  header
+    p 2016年7月ホタテ会議@川井キャンプ場
+    
+block body
+
+  //ヘッドタイトル
+  section.section_sitetitle
+    .block_cont
+      .sitetitle_visual
+        img(src='img/main.jpg')
+        
+        h1=sitetitle
+      .sitetitle_des
+        p
+          |時は西暦2016年ッ
+          br
+          |我々人類とホタテは、なんとか仲良くしようと思っていたッ
+          br
+          |そこで人類代表の我々は、ホタテとの友好関係を築くべく奥多摩にて秘密の会合を開くことになったのだッ
+        p
+          |これが
+          b ホタテ会議
+          |であるッ
+
+      .tatematsu
+        .tatematsu_img タテマツ
+        .tatematsu_com なーるほドック
+        .tatematsu_name 自走式ほったて小屋 タテマツ
+        
+
+  //情報
+  section.section_info(v-cloak)
+    .block_cont
+      //- infoblock
+      .infoblock
+        .infoblock_title
+          |場所　川井キャンプ場
+          a.btnlink(href='http://www.okutamas.co.jp/kawai/access.htm', target='_blank')
+            |公式サイト
+        .infoblock_cont
+          p ・車は以下の二台、ほかみんな電車だと思う
+          p ・やなせ、セカンドカー、ツマコンブカー車
+          
+      //- infoblock
+      .infoblock
+        .infoblock_title 集合時間　朝の１０時、現地集合！
+
+        .infoblock_cont
+          p ・早い方が楽しいヨ
+
+      //- infoblock
+      .infoblock
+        .infoblock_title メンバー　{{memberlist.length}}名
+        .infoblock_cont
+          p ・精鋭ぞろいである
+          p
+            |・テントなし（五人用バンガロー）
+            br
+            span(v-for='item in notentlist') 
+             |{{item.name}}、
+            
+          p ・ほかの人はフリーテントサイトでテント泊
+          p ・テントがない隊員は事前に相談すること。当日に騒いだ場合射殺の可能性あり
+
+          ul.member
+            li(v-for='item in memberlist')
+              span.person {{item.name}}
+            
+            
+      //- infoblock
+      .infoblock
+        .infoblock_title 予算
+        .infoblock_cont
+          p ・食材一人{{mealcost}}円とする（目安）
+          p ・アルコール一人{{alcoholcost}}円とする（目安）
+          p ・テント泊　800円
+          p ・コテージ泊　10500円（一人2100円）
+          p ・雑費（鉄板とか借りるかもしれない）
+          p ・上記よりキャンプ予算の予測
+          .camptotalcost
+            |テント泊の人
+            span {{mealcost + alcoholcost + 800}}円
+            |&ensp;＋ 雑費
+          .camptotalcost
+            |コテージ泊の人
+            span {{mealcost + alcoholcost + 2100}}円
+            |&ensp;＋ 雑費
+
+      //- infoblock
+      .infoblock
+        .infoblock_title 食材について
+        .infoblock_cont
+          p ・予算一人{{mealcost}}円×{{memberlist.length}}人で合計{{memberlist.length * mealcost}}円
+          p
+            ・海鮮コース（一人1700円）を五人分（合計8500円）
+            span.person せかいのが予約します
+          
+          p
+            ・焼きバード、その他肉、野菜を{{memberlist.length * mealcost - 8500}}円で調達
+            span.person ツマキチ
+          p
+            ・包丁、まな板、フライパン、などの調理器具は車でもってこれる？
+            span.person.person-red 担当不明
+
+       //- infoblock
+      .infoblock
+        .infoblock_title アルコールについて
+        .infoblock_cont
+          p ・予算一人{{alcoholcost}}円×{{memberlist.length}}人で合計{{memberlist.length * alcoholcost}}円
+          p
+            |・ビール {{beer}}円で調達
+            span.person.person-red 担当不明
+
+          p
+            |・モヒート、ウィスキー {{memberlist.length * alcoholcost - beer}}円で調達
+            span.person.person-red 担当不明
+          
+
+      
+      //- infoblock
+      .infoblock
+        .infoblock_title 雨天の場合
+        .infoblock_cont
+          p ・そばでも食って帰ろう
+      
+      //- infoblock
+      .infoblock
+        .infoblock_title それでは
+        .infoblock_cont
+          p
+            |・当日は
+            b.bigred ブレない心
+            |で実りあるホタテ会議となることを祈る
+
+
+block foot
+  include /_footer
+
+block append other
+
+
+block append script
+  script(src="/hotate/js/hotate.min.js")
+  

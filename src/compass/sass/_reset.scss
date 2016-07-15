@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+html {
+  background-color: transparent;
+  background-image: none;
+}
+//-------------------------
+// リセット
+//-------------------------
+@import "sanitize";
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}

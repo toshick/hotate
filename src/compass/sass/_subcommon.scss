@@ -1,0 +1,367 @@
+@charset "UTF-8";
+//-----------------------
+// extend プレイスホルダーセレクタ
+//-----------------------
+// @include sp {
+//   %resetPos {
+//     position: static;
+//     top: auto;
+//     left: auto;
+//     bottom: auto;
+//   }
+// }
+/*-----------------------*/
+// mixin
+/*-----------------------*/
+@mixin resetPos {
+  position: static;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  transform: none;
+}
+
+//-----------------------
+// 共通
+//-----------------------
+h1 {
+  @include font(28px, #448c9d, true);
+  padding: 0px 0px 30px 0px;
+  //tb
+  @include tb {
+    
+  }
+  //sp
+  @include sp {
+    font-size: 22px;
+    margin: 0px 10px 0px 10px;
+    padding-bottom: 20px;
+  }
+}
+
+h2{
+  @include font(24px, #333);
+  margin: 0px 0px 20px 0px;
+  line-height: 1.6;
+  //sp
+  @include sp {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+h3{
+  @include font(22px, #333);
+  //sp
+  @include sp {
+    line-height: 1.4;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+h4{
+  margin: 0px 0px 0px 0px;
+}
+a {
+  color: #333;
+
+}
+
+//-----------------------
+// コンテンツ共通
+//-----------------------
+
+.block_cont {
+  max-width: $width_pc;
+  margin: 0px auto 0px auto;
+  @include display-flex(flex);
+  //tb
+  @include tb {
+    display: block;
+  }
+  //sp
+  @include sp {
+    display: block;
+  }
+}
+
+.block_cont_left {
+  width: 600px;
+  padding: 20px 0px 20px 0px;
+  //tb
+  @include tb {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  //sp
+  @include sp {
+    width: 100%;
+  }
+}
+
+.block_cont_right {
+  margin-left: auto;
+  padding-right: 10px;
+  //sp
+  @include sp {
+    padding-left: 10px;
+  }
+}
+
+.contImg-big {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+  border: solid 3px #EEE;
+  border-radius: 6px;
+  img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    @include topLeft(0, 0);
+  }
+  //tb
+  @include tb {
+    width: 100%;
+  }
+  //sp
+  @include sp {
+    width: 100%;
+    height: auto;
+    border:none;
+    border-radius: 0;
+    img {
+      //@extend %resetPos;
+      @include resetPos();
+    }
+  }
+}
+
+.contImg-bottom {
+  img {
+    bottom: 0;
+    left: 0;
+    top: auto;
+  }
+  //sp
+  @include sp {
+    img {
+      //@extend %resetPos;
+      @include resetPos();
+    }
+  }
+}
+
+.contImg-center {
+  img {
+    @include center();
+  }
+  //sp
+  @include sp {
+    img {
+      //@extend %resetPos;
+      @include resetPos();
+    }
+  }
+}
+
+
+
+//-----------------------
+// スモールヘッダ
+//-----------------------
+.block_smallheader {
+  background-color: #69CAE1;
+  border-bottom: dashed 2px #FFF;
+  .block_cont {
+    @include display-flex(flex);
+    justify-content: left;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+  }
+  //tb
+  @include tb {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  //sp
+  @include sp {
+    text-align: center;
+    .block_cont {
+      display: block;
+    }
+  }
+}
+.logo_main-small{
+  //sp
+  @include sp {
+    margin: 0px auto 0px auto;
+  }
+}
+.smallheader_logo{
+  
+  
+}
+
+.smallheader_catch {
+  margin-left: auto;
+  @include font(18px, #448c9d, true);
+  @include text-shadow(0 1px 1px rgba(#FFF, 1));
+  //sp
+  @include sp {
+    
+  }
+}
+
+.logo_main-small {
+  @include img("/common/img/logo-main.png", 3);
+}
+
+.siteTitle-small {
+  @include img("/common/img/h1.png", 2);
+  margin: 0px 0px 0px 10px;
+  //sp
+  @include sp {
+    margin: 5px auto 5px auto;
+    @include img("/common/img/h1@2x.png", 3);
+  }
+}
+
+//-----------------------
+// コンテンツリスト
+//-----------------------
+.contlist {
+  width: 300px;
+  margin: 40px 0px 0px 0px;
+
+  //tb
+  @include tb {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  //sp
+  @include sp {
+    // padding-left: 10px;
+    //padding-right: 10px;
+    width: 100%;
+  }
+}
+
+.contlist_title {
+  @include font(18px, #666, true);
+  margin: 0px 0px 10px 0px;
+}
+
+.cont_item {
+  margin: 0px 0px 20px 0px;
+  a {
+    @include display-flex(flex);
+  }
+  //sp
+  @include sp {
+    margin-bottom: 10px;
+  }
+}
+
+.cont_item_img{
+  position: relative;
+  margin: 0px 10px 0px 0px;
+  img {
+    display: block;
+    width: 100px;
+    height: 75px;
+  }
+}
+.cont_item_img-noimg{
+  background-color: #CCC;
+  width: 100px;
+  height: 75px;
+  margin: 0px 10px 0px 0px;
+  &:after {
+    content: "batido";
+    position: absolute;
+    @include center();
+    @include img("/common/img/icon-batido-white.png", 4);
+    z-index: 20;
+  }
+}
+
+.cont_item-current {
+  a {
+    pointer-events: none;
+  }
+  img {
+    //border: solid 4px #666;
+    
+  }
+  .cont_item_img{
+    display: block;
+    position: relative;
+    &:before{
+      position: absolute;
+      @include topLeft(0px, 0px);
+      content: "";
+      display: block;
+      width: 100px;
+      height: 75px;
+      background-color: #FFF;
+    }
+    &:after{
+      
+      position: absolute;
+      @include img("/common/img/icon-batido.png", 4);
+      @include  center();
+      content: "";
+      display: block;
+      
+    }
+  }
+  .cont_item_txt_title,
+  .cont_item_txt_des {
+    color: #666;
+  }
+}
+
+.cont_item_txt {
+  flex: 1;
+}
+
+.cont_item_txt_title {
+  @include font(14px, #448c9d, true);
+}
+
+.cont_item_txt_des {
+  @include font(12px, #448c9d);
+
+}
+
+//-----------------------
+// 場所リスト
+//-----------------------
+.placeList{
+  h4 {
+    line-height: 1.8;
+  }
+  //sp
+  @include sp {
+    padding: 0px 10px 0px 10px;
+  }
+}
+.placeList_address{
+  margin-left: 10px;
+  .contLink-arrowLBlue{
+    margin-left: 10px;
+  }
+}
+
+//-----------------------
+// コンテンツボトム
+//-----------------------
+.contBottom{
+
+  
+}
