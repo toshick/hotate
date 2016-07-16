@@ -741,6 +741,20 @@ P.fadeOut = function(el, callback) {
 
 ------------------------*/
 $.fn.extend({
+
+  /*-----------------------*/
+  // animateCss
+  /*-----------------------*/
+  animateCss: function(animationName, callback) {
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
+    $(this).addClass('animated ' + animationName).on(animationEnd, function() {
+      $(this).off(animationEnd)
+      $(this).removeClass('animated ' + animationName)
+      
+      if(callback) callback()
+    })
+  },
+
   /* -----------------------*/
   // isVisible
   /* -----------------------*/

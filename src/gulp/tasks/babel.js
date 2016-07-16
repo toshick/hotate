@@ -1,9 +1,9 @@
-const p = require('./params.json');
-const path = require('path');
-const gulp = require('gulp');
-const babel = require('gulp-babel');
+const p = require('./params.json')
+const path = require('path')
+const gulp = require('gulp')
+const babel = require('gulp-babel')
 
-var path_htdocs = p.path_htdocs;
+var path_htdocs = p.path_htdocs
 
 /*-----------------------*/
 // babel
@@ -14,5 +14,5 @@ gulp.task('babel', function() {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(gulp.dest(path_htdocs))
+})

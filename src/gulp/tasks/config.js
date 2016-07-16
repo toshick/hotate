@@ -1,13 +1,12 @@
-const p = require('./params.json');
-var webpack = require("webpack");
-var src_js = __dirname +'/../src_js/';
+const p = require('./params.json')
+var webpack = require('webpack')
+var src_js = __dirname +'/../src_js/'
 
-var lib = src_js + 'lib/';
-var components = src_js + 'components/';
-var common = src_js + 'common/';
-var components = src_js + 'components/';
-var path_srcjs = p.path_srcjs;
-var path_public = __dirname +'/../../../htdocs';
+var lib = src_js + 'lib/'
+var components = src_js + 'components/'
+var common = src_js + 'common/'
+var path_srcjs = p.path_srcjs
+var path_public = __dirname +'/../../../htdocs'
 
 module.exports = {
 
@@ -15,13 +14,13 @@ module.exports = {
   // webpack
   /*-----------------------*/
   webpack: {
-    // entry: src + "/" + fileName,
+    // entry: src + '/' + fileName,
     // output: {
-    //   filename: fileName
+    //   filename: '[name].js'
     // },
     resolve: {
-      extensions: ["", ".js"],
-      modulesDirectories: ["node_modules", "bower_components"],
+      extensions: ['', '.js'],
+      modulesDirectories: ['node_modules', 'bower_components'],
       alias: {
         jquery: lib + 'jquery-2.1.0.min.js',
         // 'pixi': lib + 'pixi.min.js',
@@ -49,14 +48,14 @@ module.exports = {
     },
     plugins: [
       // new webpack.ResolverPlugin(
-      //   //new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+      //   //new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
       // ),
       new webpack.optimize.DedupePlugin(), // ライブラリ間で依存しているモジュールが重複している場合、二重に読み込まないようにする
-      new webpack.optimize.AggressiveMergingPlugin(), 　 //ファイルを細かく分析し、まとめられるところはできるだけまとめてコードを圧縮する
+      new webpack.optimize.AggressiveMergingPlugin(), //ファイルを細かく分析し、まとめられるところはできるだけまとめてコードを圧縮する
       new webpack.ProvidePlugin({
-        jQuery: "jquery",
-        $: "jquery",
-        jquery: "jquery"
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
       })
 
     ],
