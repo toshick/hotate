@@ -1,0 +1,19 @@
+{
+  "name": "hotate-doc",
+  "version": "0.0.1",
+  "description": "ホタテ会議",
+  "main": "index.js",
+  "authors": {
+    "name": "toshick",
+    "email": "toshickjazz@mac.com"
+  },
+  "repository": "/hotate-doc",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
