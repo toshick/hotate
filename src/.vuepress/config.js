@@ -1,9 +1,9 @@
 const { description } = require('../../package');
 
-// const base = process.env.BASE || '';
+const base = process.env.BASE || '';
 
 module.exports = {
-  // base,
+  base,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
