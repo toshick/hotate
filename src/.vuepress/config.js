@@ -1,10 +1,13 @@
 const { description } = require('../../package');
 
+const base = process.env.BASE || '';
+
 module.exports = {
+  base,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'ホタテかいぎ',
+  title: 'ホタテかいぎです',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
