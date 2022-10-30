@@ -9,3 +9,5 @@ log
 node
 .sass-cache
 
+dist
+debugdist
