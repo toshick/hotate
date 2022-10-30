@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "preview": "npx http-server src/.vuepress/dist"
+    "preview": "npx http-server src/.vuepress/dist",
+    "debug": "rm -rf debugdist/hotate && npm run build && mv src/.vuepress/dist ./debugdist/hotate && npx http-server ./debugdist"
   },
   "license": "MIT",
   "devDependencies": {

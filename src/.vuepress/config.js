@@ -1,9 +1,10 @@
 const { description } = require('../../package');
 
-const base = process.env.BASE || '';
+// const path = process.env.BASE || '/hotate/';
+const path = 'hotate';
 
 module.exports = {
-  base,
+  base: `/${path}/`,
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -12,7 +13,6 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -26,7 +26,6 @@ module.exports = {
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
   ],
-
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -35,17 +34,17 @@ module.exports = {
   themeConfig: {
     repo: '',
     editLinks: false,
-    docsDir: '/hotate/',
+    docsDir: path,
     editLinkText: '',
     lastUpdated: false,
     nav: [
       {
         text: 'Guide',
-        link: '/guide/',
+        link: `/guide/`,
       },
       {
         text: 'Config',
-        link: '/config/',
+        link: `/config/`,
       },
       {
         text: 'VuePress',
@@ -53,7 +52,7 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/guide/': [
+      [`/${path}/guide/`]: [
         {
           title: 'Guide',
           collapsable: false,
@@ -62,7 +61,6 @@ module.exports = {
       ],
     },
   },
-
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
