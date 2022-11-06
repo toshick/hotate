@@ -32,6 +32,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    search: false,
     repo: '',
     editLinks: false,
     docsDir: path,
@@ -39,12 +40,12 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: `/guide/`,
+        text: 'Event',
+        link: `/event/`,
       },
       {
-        text: 'Config',
-        link: `/config/`,
+        text: 'Favorite',
+        link: `/favorite/`,
       },
       {
         text: 'VuePress',
